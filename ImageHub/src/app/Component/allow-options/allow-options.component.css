@@ -1,0 +1,13 @@
+button {
+    padding: 10px;
+    background-color: lightgreen;
+    border-radius: 10px;
+}
+
+.checkboxDiv {
+    padding: 20px;
+}
+
+input {
+    margin: 8px;
+}

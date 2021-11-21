@@ -1,0 +1,14 @@
+div {
+    text-align: center;
+    padding: 10px;
+    background-color: lightsalmon;
+}
+
+.private {
+    text-align: right;
+}
+
+h1 {
+    display: inline-block;
+    padding: 15px;
+}

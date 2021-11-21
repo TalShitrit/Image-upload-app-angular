@@ -1,0 +1,32 @@
+<div>
+  <div class="titel">
+    {{imageData.title}}
+  </div>
+  <br>
+  <div><img src={{imageData.imageData}} /></div>
+  <div class="data">
+    <div>time made : {{imageData.timeCreated}}</div>
+    <div>
+      categories : <b>{{imageData.categories}}</b>
+    </div>
+    <div *ngIf="imageData.mapCoords">
+      <agm-map id="map" [latitude]="imageData.mapCoords.lat" [longitude]="imageData.mapCoords.lng" [zoom]="zoom">
+        <agm-marker [latitude]="imageData.mapCoords.lat" [longitude]="imageData.mapCoords.lng"></agm-marker>
+      </agm-map>
+    </div>
+    <div class="icons">
+      <span *ngIf="imageData.isPrivate">
+        <fa-icon [icon]="['fas','lock']" size="2x"></fa-icon>
+      </span>
+      <span *ngIf="!imageData.isPrivate">
+        <fa-icon [icon]="['fas','lock-open']" size="2x"></fa-icon>
+      </span>
+      <span *ngIf="imageData.isFavorite">
+        <fa-icon [icon]="['fas','star']" [styles]="{'stroke': 'black', 'color': 'yellow'}" size="2x"></fa-icon>
+      </span>
+      <span *ngIf="!imageData.isFavorite">
+        <fa-icon [icon]="['fas','star']" [styles]="{'stroke': 'black', 'color': 'white'}" size="2x"></fa-icon>
+      </span>
+    </div>
+  </div>
+</div>

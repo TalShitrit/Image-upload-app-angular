@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "http://localhost:1111/upload",
+      "secure": false
+    }
+  }

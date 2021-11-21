@@ -1,0 +1,28 @@
+.data {
+    padding: 5px;
+    margin: 5px;
+}
+
+img {
+    width: 300px;
+}
+
+.titel {
+    padding: 5px;
+    margin: 5px;
+    display: block;
+    font-size: x-large;
+}
+
+agm-map {
+    height: 250px;
+    width: 450px;
+}
+
+div, span {
+    margin: 8px;
+}
+
+.icons {
+    margin-top: 15px;
+}

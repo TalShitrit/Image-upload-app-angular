@@ -1,0 +1,47 @@
+<div>
+   <div>
+      <div>
+         <span>enter name:</span>
+         <input [(ngModel)]="imageinfo.title">
+      </div>
+      <div>
+         <span>enter categories:</span>
+
+         <select multiple [(ngModel)]="imageinfo.categories">
+            <option *ngFor="let category of allCategories" [value]="category">
+               {{category}}
+            </option>
+         </select>
+      </div>
+      <div>
+         <span>Is the image private?</span>
+         <input type="checkbox" [(ngModel)]="imageinfo.isPrivate" />
+      </div>
+      <div>
+         <span>Is Favorite</span>
+         <input type="checkbox" [(ngModel)]="imageinfo.isFavorite" />
+      </div>
+      <div *ngIf="canUsemap">
+         <app-map></app-map>
+      </div>
+      <div *ngIf="!canUsemap">
+         <h2 class="warning">no map allowed(change in options)</h2>
+      </div>
+   </div>
+   <span id="linkUpload" (click)="linkUpload()">upload by link</span>
+   <span (click)="localUpload()">upload from local file</span>
+   <span id="cameraUploadSpan" (click)="cameraUpload()">upload by pc camera</span>
+
+   <div>
+      <app-local-upload [hidden]="!uploadLocal"></app-local-upload>
+      <app-link-upload [hidden]="!uploadByLink"></app-link-upload>
+      <app-web-camera id='cameraUpload' [hidden]="!uploadByCamera"></app-web-camera>
+      <!-- <router-outlet name="uploadOption"></router-outlet> -->
+
+   </div>
+   <div *ngIf="imgService.getImg().imageData" class="info">
+      hey this is the image you took!
+      <img [src]="imgService.getImg().imageData" />
+   </div>
+   <button (click)="Upload()">Upload</button>
+</div>

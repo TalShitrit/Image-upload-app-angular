@@ -1,0 +1,16 @@
+<div *ngIf="options">
+    <!-- wait for it to load -->
+    <div>
+        <div class="checkboxDiv">
+            <div>allow pc camera <input type="checkbox" [(ngModel)]="options.cameraOption" /></div>
+            <div>allow device location <input type="checkbox" [(ngModel)]="options.locationOption" /></div>
+            <div>private mode <input type="checkbox" [(ngModel)]="options.privateMode" /></div>
+            <div *ngIf="options.privateMode">
+                Password <input [(ngModel)]="options.privateModePassword" />
+            </div>
+        </div>
+    </div>
+
+    <button (click)="goNext()">continue</button>
+
+</div>

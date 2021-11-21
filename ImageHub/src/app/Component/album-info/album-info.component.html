@@ -1,0 +1,19 @@
+<div *ngIf="albumInfo">
+    <div>
+        <label>album name</label>
+        <input [(ngModel)]="albumInfo.name" />
+    </div>
+    <div>
+        <span>Description</span>
+        <textarea type="text" resize="none" [(ngModel)]="albumInfo.description"></textarea>
+    </div>
+    <div>
+        <select id="albumShow" [(ngModel)]="albumInfo.showOption">
+            <option value="grid">Grid</option>
+            <option value="list">List</option>
+        </select>
+    </div>
+
+    <div><button (click)="goNext()">continue</button></div>
+
+</div>

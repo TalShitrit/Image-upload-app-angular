@@ -1,0 +1,18 @@
+button {
+  padding: 10px;
+  margin: 5px;
+  background-color: lightseagreen;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+input[type=text] {
+  padding: 10px;
+  margin: 5px;
+  font-size: 15px;
+}
+
+span {
+  margin-right: 15px;
+  font-size: 20px;
+}

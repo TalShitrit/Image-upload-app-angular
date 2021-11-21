@@ -1,0 +1,10 @@
+<div>
+  <app-links></app-links>
+  <router-outlet></router-outlet>
+  <div class="private" *ngIf="loginService.getStatus()">
+    <fa-icon [icon]="['fas','lock']" size="7x"></fa-icon>
+  </div>
+  <div class="private" *ngIf="!loginService.getStatus()">
+    <fa-icon [icon]="['fas','lock-open']" size="4x"></fa-icon>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div>
+    <h1>map</h1>
+    <div class="mapCotainer">
+        <agm-map id="map" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+            <agm-marker [latitude]="lat" [longitude]="lng" (dragEnd)="markerDragEnd($event)" [markerDraggable]="true">
+            </agm-marker>
+        </agm-map>
+    </div>
+</div>

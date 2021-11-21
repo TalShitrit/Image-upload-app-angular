@@ -1,0 +1,23 @@
+div, input, textarea {
+  padding: 5px;
+  margin: 5px;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+  width: 300px;
+}
+
+select {
+  margin-top: 15px;
+  min-width: 80px;
+  border-radius: 15px;
+  font-size: larger;
+}
+
+button {
+  padding: 10px;
+  background-color: lightgreen;
+  border-radius: 10px;
+}

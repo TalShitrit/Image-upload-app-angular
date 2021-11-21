@@ -1,0 +1,64 @@
+<div>
+  <div *ngIf="selectedToEdit" class="item" id="selectedToEdit">
+    <h3>Edit Image</h3>
+    <div>
+      <span>enter name:</span>
+      <input [(ngModel)]="selectedToEdit.title">
+    </div>
+    <div>
+      <span>Categories:</span>
+
+      <select multiple [(ngModel)]="selectedToEdit.categories">
+        <option *ngFor="let category of allCategories" [value]="category">
+          {{category}}
+        </option>
+      </select>
+    </div>
+    <div>
+      <span>isPrivate :</span> <input type="checkbox" [(ngModel)]="selectedToEdit.isPrivate" />
+    </div>
+    <div>
+      <span>isFavorite :</span> <input type="checkbox" [(ngModel)]="selectedToEdit.isFavorite" />
+    </div>
+
+    <div>
+      <agm-map id="map" [latitude]="selectedToEdit.mapCoords.lat" [longitude]="selectedToEdit.mapCoords.lng"
+        [zoom]="15">
+        <agm-marker [latitude]="selectedToEdit.mapCoords.lat" [longitude]="selectedToEdit.mapCoords.lng"
+          (dragEnd)="markerDragEnd($event)" [markerDraggable]="true"></agm-marker>
+      </agm-map>
+    </div>
+    <button (click)="saveEdit()">Save</button>
+    <button (click)="deleteEdit()">Delete</button>
+    <button (click)="exitEdit()">Exit</button>
+    <div>*Refresh to see changes</div>
+  </div>
+  <div class="search">
+    <div>
+      <span>Get by title</span>
+      <input type="text" #title />
+      <button (click)="getByTitle(title.value)">Search</button>
+    </div>
+    <div>
+      <span>Get by category</span>
+      <select id="selectId" (change)="getByCategory($event)">
+        <option></option>
+        <option *ngFor="let category of allCategories" [value]="category">
+          {{category}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div *ngIf="album &&album.length ==0">
+    <h1>No image was found</h1>
+  </div>
+  <div *ngIf="album && album.length !=0">
+    <h1>hey this is your album</h1>
+    <div id="imgContainer">
+      <div *ngFor="let imageData of album; " class="item">
+        <app-album-item [imageData]="imageData" (dblclick)="dbclick(imageData)"></app-album-item>
+      </div>
+    </div>
+  </div>
+
+</div>

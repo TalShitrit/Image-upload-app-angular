@@ -1,0 +1,22 @@
+<div *ngIf="isPrivateMode">
+    <div *ngIf="!loginService.getStatus()">
+        <h2>log in for private mode</h2>
+        <div>
+            <span>enter password</span>
+            <input type="text" #password id="passwordInput" />
+            <div>
+                <button (click)="login(password.value)">Log in</button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="loginService.getStatus()">
+        <h2>log out from private mode</h2>
+        <div>
+            <button (click)="logout()">Log out</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="!isPrivateMode">
+    <h1>private mode is not available</h1>
+</div>
